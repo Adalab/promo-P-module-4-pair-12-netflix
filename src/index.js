@@ -1,13 +1,39 @@
 const express = require('express');
 const cors = require('cors');
-
-// create and config server
+const moviesFromApi = require('../web/src/data/movies.json');
+// create server
 const server = express();
+// set express middleware
+//   we must always put these lines, until we know what they do
+//   more info: https://expressjs.com/es/guide/using-middleware.html
 server.use(cors());
 server.use(express.json());
-
 // init express aplication
-const serverPort = 4000;
+const serverPort = 3000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
+});
+// STATIC SERVER: listen files in public folder
+const staticServerPath = './public'; // relative to the root of the project
+server.use(express.static(staticServerPath));
+// API: listen fetch requests
+// API request > GET > http://localhost:3000/users
+server.get('/movies', (req, res) => {
+  const response = {
+    success: true,
+    movies: moviesFromApi,
+  };
+  res.json(response);
+});
+
+// API request > POST > http://localhost:3000/new-user
+server.post('/new-user', (req, res) => {
+  // console request body params
+  console.log(
+    `Creating the user in database with user name: "${req.body.userName}"`
+  );
+  const response = {
+    result: `User created: ${req.body.userName}`,
+  };
+  res.json(response);
 });
