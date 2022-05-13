@@ -19,9 +19,12 @@ server.use(express.static(staticServerPath));
 // API: listen fetch requests
 // API request > GET > http://localhost:4000/movies
 server.get('/movies', (req, res) => {
+  const filterMovies = moviesFromApi.filter(
+    (movie) => movie.gender === req.query.gender
+  );
   const response = {
     success: true,
-    movies: moviesFromApi,
+    movies: filterMovies,
   };
   res.json(response);
 });
