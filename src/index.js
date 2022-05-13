@@ -9,7 +9,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 // init express aplication
-const serverPort = 3000;
+const serverPort = 4000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
@@ -17,7 +17,7 @@ server.listen(serverPort, () => {
 const staticServerPath = './public'; // relative to the root of the project
 server.use(express.static(staticServerPath));
 // API: listen fetch requests
-// API request > GET > http://localhost:3000/users
+// API request > GET > http://localhost:4000/movies
 server.get('/movies', (req, res) => {
   const response = {
     success: true,
@@ -27,10 +27,11 @@ server.get('/movies', (req, res) => {
 });
 
 // API request > POST > http://localhost:3000/new-user
-server.post('/new-user', (req, res) => {
+server.post('/gender', (req, res) => {
   // console request body params
+  console.log(`holi`);
   console.log(
-    `Creating the user in database with user name: "${req.body.userName}"`
+    `Creating the user in database with user name: "${req.movies.gender}"`
   );
   const response = {
     result: `User created: ${req.body.userName}`,
