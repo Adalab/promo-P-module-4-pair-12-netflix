@@ -14,7 +14,7 @@ server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 // STATIC SERVER: listen files in public folder
-const staticServerPath = './public'; // relative to the root of the project
+const staticServerPath = './src/public-react'; // relative to the root of the project
 server.use(express.static(staticServerPath));
 // API: listen fetch requests
 // API request > GET > http://localhost:4000/movies
