@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const moviesFromApi = require('../web/src/data/movies.json');
+const usersFromApi = require('../web/src/data/users.json');
 // create server
 const server = express();
+
 // set express middleware
 //   we must always put these lines, until we know what they do
 //   more info: https://expressjs.com/es/guide/using-middleware.html
@@ -29,6 +31,16 @@ server.get('/movies', (req, res) => {
   res.json(response);
 });
 
+// server.post('/login', (req, res) => {
+//   console.log('Body params:', req.body);
+//   console.log('Body param userName:', req.body.email);
+//   console.log('Body param userEmail:', req.body.password);
+// });
+
+server.post('/login', (req, res) => {
+  console.log(req.body);
+});
+
 // API request > POST > http://localhost:3000/new-user
 server.post('/gender', (req, res) => {
   // console request body params
@@ -41,3 +53,6 @@ server.post('/gender', (req, res) => {
   };
   res.json(response);
 });
+
+const staticServerImages = './src/public-movies-images'; // estatic images
+server.use(express.static(staticServerImages));

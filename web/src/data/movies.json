@@ -3,24 +3,24 @@
     "id": "1",
     "title": "Gambita de dama",
     "gender": "Drama",
-    "image": "https://via.placeholder.com/150"
+    "image": "//localhost:4000/gambita-de-dama.jpg"
   },
   {
     "id": "2",
     "title": "Friends",
     "gender": "Comedia",
-    "image": "https://via.placeholder.com/150"
+    "image": "//localhost:4000/friends.jpg"
   },
   {
     "id": "3",
     "title": "Back to the future",
     "gender": "Comedia",
-    "image": "https://via.placeholder.com/150"
+    "image": "//localhost:4000/back-to-the-future.jpg"
   },
   {
     "id": "4",
     "title": "Big",
     "gender": "Comedia",
-    "image": "https://via.placeholder.com/150"
+    "image": "//localhost:4000/big.jpg"
   }
 ]
