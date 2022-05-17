@@ -39,6 +39,20 @@ server.get('/movies', (req, res) => {
 
 server.post('/login', (req, res) => {
   console.log(req.body);
+  const loginUsers = usersFromApi.find((user) => {
+    if (user.email === req.body.email && user.password === req.body.password) {
+      console.log(user.id);
+      return res.json({
+        success: true,
+        userId: user.id,
+      });
+    } else {
+      return res.json({
+        success: false,
+        errorMessage: 'Usuaria/o no encontrada/o',
+      });
+    }
+  });
 });
 
 // API request > POST > http://localhost:3000/new-user
