@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-// components
+
 import Header from './Header';
 import AllMovies from './AllMovies';
 import MyMovies from './MyMovies';
 import Login from './Login';
 import Profile from './Profile';
 import SignUp from './SignUp';
-// services
+
 import apiMovies from '../services/api-movies';
 import apiUser from '../services/api-user';
 import router from '../services/router';
