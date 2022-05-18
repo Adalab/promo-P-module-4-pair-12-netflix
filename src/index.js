@@ -23,25 +23,13 @@ server.use(express.static(staticServerPath));
 const staticServerImages = './src/public-movies-images';
 server.use(express.static(staticServerImages));
 
-//----------------------------------------------esto era lo de antes--------------BORRAR
-// server.get('/movies', (req, res) => {
-//   const filterMovies = moviesFromApi.filter(
-//     (movie) => movie.gender === req.query.gender
-//   );
-
-//   const response = {
-//     success: true,
-//     movies: filterMovies,
-//   };
-//   res.json(response);
-// });
-
 // DÍA 2 -  Primer endpoint que escucha la peticion de películas
 // DÍA 2 -  Filtro por género con query params
 // DÍA 2 -  if params gender le llega vacio devuelve true.
 // DÍA 2 -  else si coincide el gender de la api con el gender que le llega por params lo pone false
 // DÍA 2 -  la respuesta es true con lo que se ha filtrado
 server.get('/movies', (req, res) => {
+  console.log(moviesFromApi);
   const filterMovies = moviesFromApi.filter((movie) => {
     if (req.query.gender == '') {
       return true;
