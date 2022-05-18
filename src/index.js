@@ -56,10 +56,8 @@ server.get('/movies', (req, res) => {
 });
 // DÍA 3 -  Peticion por post para comprobar el login de la usuaria
 server.post('/login', (req, res) => {
-  console.log(req.body);
   const loginUsers = usersFromApi.find((user) => {
     if (user.email === req.body.email && user.password === req.body.password) {
-      console.log(user.id);
       return res.json({
         success: true,
         userId: user.id,
