@@ -2,9 +2,11 @@
 
 const express = require('express');
 const cors = require('cors');
-const moviesFromApi = require('./data/movies.json');
-const usersFromApi = require('./data/users.json');
 
+// const moviesFromApi = require('./data/movies.json');
+const usersFromApi = require('./data/users.json');
+const Database = require('better-sqlite3');
+const db = new Database('./src/db/database.db', { verbose: console.log });
 const server = express();
 
 // DÍA 1 -  configuramos el servidor
@@ -29,8 +31,10 @@ server.use(express.static(staticServerImages));
 // DÍA 2 -  else si coincide el gender de la api con el gender que le llega por params lo pone false
 // DÍA 2 -  la respuesta es true con lo que se ha filtrado
 server.get('/movies', (req, res) => {
-  console.log(moviesFromApi);
-  const filterMovies = moviesFromApi.filter((movie) => {
+  const query = db.prepare(`SELECT * FROM movies`);
+  const movieList = query.all();
+
+  const filterMovies = movieList.filter((movie) => {
     if (req.query.gender == '') {
       return true;
     } else {
