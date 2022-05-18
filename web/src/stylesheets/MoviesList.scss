@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-between;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  max-width: 7.5rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  border: 0.1875rem solid #e50914;
+  overflow: hidden;
+  transition: 0.25s all;
+  background-color: black;
+  color: #cecece;
+}
+.card__img {
+  width: 100%;
+}
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
