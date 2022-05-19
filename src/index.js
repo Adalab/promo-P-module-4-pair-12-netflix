@@ -7,6 +7,7 @@ const cors = require('cors');
 const usersFromApi = require('./data/users.json');
 const Database = require('better-sqlite3');
 const db = new Database('./src/db/database.db', { verbose: console.log });
+const dbusers = new Database('./src/db/datausers.db', { verbose: console.log });
 const server = express();
 
 // DÍA 1 -  configuramos el servidor
@@ -59,6 +60,15 @@ server.post('/login', (req, res) => {
         success: false,
         errorMessage: 'Usuaria/o no encontrada/o',
       });
+    }
+  });
+});
+// DIA 6 -Peticion por post para registro de la usuaria
+server.post('/sign', (req, res) => {
+  console.log(req.body.email);
+  const singUsers = dbusers.find((user) => {
+    if (user.email !== req.body.email && user.password !== req.body.password) {
+      usersFromApi.push();
     }
   });
 });
