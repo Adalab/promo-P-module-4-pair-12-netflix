@@ -7,13 +7,13 @@ const Header = (props) => {
     if (props.isUserLogged === false)
       return (
         <>
-          <li className="nav__item">
-            <Link className="nav__link" to="/login">
+          <li className="header__navItem">
+            <Link className="header__navLink" to="/login">
               Login
             </Link>
           </li>
-          <li className="nav__item">
-            <Link className="nav__link" to="/signup">
+          <li className="header__navItem">
+            <Link className="header__navLink" to="/signup">
               Registro
             </Link>
           </li>
@@ -25,18 +25,18 @@ const Header = (props) => {
     if (props.isUserLogged === true)
       return (
         <>
-          <li className="nav__item">
-            <Link className="nav__link" to="/profile">
+          <li className="header__navItem">
+            <Link className="header__navLink" to="/profile">
               Mi perfil
             </Link>
           </li>
-          <li className="nav__item">
-            <Link className="nav__link" to="/my-movies">
+          <li className="header__navItem">
+            <Link className="header__navLink" to="/my-movies">
               Mis películas
             </Link>
           </li>
-          <li className="nav__item">
-            <span className="nav__link" onClick={props.logout}>
+          <li className="header__navLink">
+            <span className="header__navItem" onClick={props.logout}>
               Cerrar sesión
             </span>
           </li>
@@ -45,14 +45,14 @@ const Header = (props) => {
   };
 
   return (
-    <header className="col2 border--medium">
-      <Link className="nav__link" to="/">
-        <h1 className="title--big">Netflix</h1>
+    <header className="header">
+      <Link to="/">
+        <h1 className="header__title">Netflix</h1>
       </Link>
-      <nav className="text-align-right">
-        <ul>
-          <li className="nav__item">
-            <Link className="nav__link" to="/">
+      <nav>
+        <ul className="header__menu">
+          <li>
+            <Link className="header__navLink" to="/">
               Inicio
             </Link>
           </li>

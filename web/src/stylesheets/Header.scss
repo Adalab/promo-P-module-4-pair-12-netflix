@@ -1,13 +1,23 @@
-.col2 {
+.header {
   background-color: black;
   display: flex;
+  flex-direction: row;
 }
-.title--big {
+.header__title {
   color: #e50914;
 }
-.nav__link {
-  color: #e50914;
+.header__menu {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: flex-end;
+  margin: 0 auto;
 }
-.nav__item {
+.header__navItem {
   list-style: none;
+}
+.header__navLink {
+  color: #e50914;
+  list-style: none;
+  cursor: pointer;
 }
