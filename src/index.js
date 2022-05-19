@@ -49,29 +49,43 @@ server.get('/movies', (req, res) => {
 });
 // DÍA 3 -  Peticion por post para comprobar el login de la usuaria
 server.post('/login', (req, res) => {
-  const loginUsers = usersFromApi.find((user) => {
-    if (user.email === req.body.email && user.password === req.body.password) {
-      return res.json({
-        success: true,
-        userId: user.id,
-      });
-    } else {
-      return res.json({
-        success: false,
-        errorMessage: 'Usuaria/o no encontrada/o',
-      });
-    }
-  });
+  const query = dbusers.prepare(
+    `SELECT * FROM users WHERE email = ? AND password = ?`
+  );
+  const loginUsers = query.run(req.body.email, req.body.password);
+  if (loginUsers !== undefined) {
+    return res.json({
+      success: true,
+      userId: user.id,
+    });
+  } else {
+    return res.json({
+      success: false,
+      errorMessage: 'Usuaria/o no encontrada/o',
+    });
+  }
 });
+
 // DIA 6 -Peticion por post para registro de la usuaria
 server.post('/sign', (req, res) => {
-  console.log(req.body.email);
-  const singUsers = dbusers.find((user) => {
-    if (user.email !== req.body.email && user.password !== req.body.password) {
-      usersFromApi.push();
-    }
+  const query = dbusers.prepare(
+    `INSERT INTO users (email, password, name) VALUES (?, ?, ?)`
+  );
+  const result = query.run(req.body.email, req.body.password, req.body.name);
+  res.json({
+    success: true,
+    userId: result.lastInsertRowid,
   });
 });
+
+// server.post('/sign', (req, res) => {
+//   console.log(req.body.email);
+//   const singUsers = dbusers.find((user) => {
+//     if (user.email !== req.body.email && user.password !== req.body.password) {
+//       usersFromApi.push();
+//     }
+//   });
+// });
 
 //---------------------------creo que no sirve-------------------------------BORRAR
 // // API request > POST > http://localhost:3000/new-user
