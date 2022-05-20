@@ -47,11 +47,11 @@ const Header = (props) => {
   return (
     <header className="header">
       <Link to="/">
-        <h1 className="header__title">Netflix</h1>
+        <h1 className="header__title">ADAETFLIX</h1>
       </Link>
-      <nav>
+      <nav className="header_nav">
         <ul className="header__menu">
-          <li>
+          <li className="header__navItem">
             <Link className="header__navLink" to="/">
               Inicio
             </Link>

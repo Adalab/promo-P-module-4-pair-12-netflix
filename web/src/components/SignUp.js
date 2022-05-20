@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../stylesheets/SignUp.scss';
 
 const SignUp = (props) => {
   const [name, setName] = useState('');
@@ -43,9 +44,9 @@ const SignUp = (props) => {
   };
 
   return (
-    <section className="border--medium">
-      <h1>Regístrate</h1>
-      <form onSubmit={handleForm}>
+    <section className="main__section3">
+      <h1 className="main__section3--title">Regístrate</h1>
+      <form onSubmit={handleForm} className="main__section3--form">
         <label className="form__label display-block" htmlFor="name">
           Escribe tu nombre
         </label>

@@ -6,25 +6,32 @@
     width: 50%;
   }
 }
-
-.movies__radio {
-  display: inline-block;
-  margin: 0 0.5rem;
+.main__section1 {
+  color: #cecece;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
-.title--medium {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.125rem;
+
+.main__section1-title {
+  font-size: 20px;
   font-weight: 700;
+  padding: 10px;
 }
 .movies__filters {
   display: flex;
   align-items: center;
+  padding: 10px;
 }
-.border--medium {
-  color: #cecece;
-  background-color: black;
+.filterGender {
 }
 .form__input-text {
   color: black;
   background-color: #cecece;
+  margin-left: 5px;
+}
+.movies__radio {
+  display: inline-block;
+  margin: 0 0.5rem;
 }

@@ -11,8 +11,8 @@ const AllMovies = (props) => {
   };
 
   return (
-    <section className="border--medium">
-      <h1 className="title--medium">
+    <section className="main__section1">
+      <h1 className="main__section1-title">
         Estas son todas las películas de nuestro catálogo
       </h1>
       <form className="movies__filters">

@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
+import '../stylesheets/Login.scss';
 
-const Login = props => {
+const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   // events
 
-  const handleEmail = ev => {
+  const handleEmail = (ev) => {
     setEmail(ev.target.value);
   };
 
-  const handlePassword = ev => {
+  const handlePassword = (ev) => {
     setPassword(ev.target.value);
   };
 
-  const handleForm = ev => {
+  const handleForm = (ev) => {
     ev.preventDefault();
     // enviamos los datos a App y este al API
     props.sendLoginToApi({
       email: email,
-      password: password
+      password: password,
     });
   };
 
@@ -30,16 +31,17 @@ const Login = props => {
     if (props.loginErrorMessage !== '') {
       return (
         <p className="border--medium border--warning mt-1">
-          Error en el login: <span className="text--bold">{props.loginErrorMessage}</span>
+          Error en el login:{' '}
+          <span className="text--bold">{props.loginErrorMessage}</span>
         </p>
       );
     }
   };
 
   return (
-    <section className="border--medium">
-      <h1>Identifícate</h1>
-      <form onSubmit={handleForm}>
+    <section className="main__section2">
+      <h1 className="main__section2--title">Identifícate</h1>
+      <form onSubmit={handleForm} className="main__section2--form">
         <label className="form__label display-block" htmlFor="email">
           Escribe tu email
         </label>
@@ -64,7 +66,11 @@ const Login = props => {
           onChange={handlePassword}
         />
 
-        <input className="form__btn display-block" type="submit" value="Entrar" />
+        <input
+          className="form__btn display-block"
+          type="submit"
+          value="Entrar"
+        />
 
         {renderErrorMessage()}
       </form>

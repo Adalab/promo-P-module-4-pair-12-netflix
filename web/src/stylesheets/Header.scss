@@ -2,22 +2,52 @@
   background-color: black;
   display: flex;
   flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
 }
 .header__title {
   color: #e50914;
+  padding: 20px;
+  font-family: 'Bebas Neue';
+  font-size: 60px;
+  animation: pulse 1s infinite ease-in-out alternate;
 }
+
+@keyframes pulse {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
 .header__menu {
-  display: flex;
   justify-content: space-around;
-  text-align: center;
-  align-items: flex-end;
-  margin: 0 auto;
+
+  @media all and (min-width: 768px) {
+    display: flex;
+  }
 }
 .header__navItem {
   list-style: none;
+  padding: 10px;
 }
 .header__navLink {
   color: #e50914;
   list-style: none;
   cursor: pointer;
+  padding: 30px;
+  font-family: 'Bebas Neue';
+  font-size: 30px;
+}
+.header__navLink:hover {
+  color: #bfb8b9;
+}
+
+.header_nav {
+  display: flex;
+  align-items: center;
+  padding: 30px;
 }

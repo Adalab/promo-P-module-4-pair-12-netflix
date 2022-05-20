@@ -1,0 +1,22 @@
+.main__section3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.main__section3--title {
+  font-family: 'Bebas Neue';
+  font-size: 40px;
+}
+.main__section3--form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 30%;
+  margin: 0 auto;
+}
+.form__label,
+.form__btn {
+  margin: 20px;
+}
