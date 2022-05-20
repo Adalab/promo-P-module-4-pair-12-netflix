@@ -7,7 +7,7 @@ const cors = require('cors');
 const usersFromApi = require('./data/users.json');
 const Database = require('better-sqlite3');
 const db = new Database('./src/db/database.db', { verbose: console.log });
-const dbusers = new Database('./src/db/datausers.db', { verbose: console.log });
+//const dbusers = new Database('./src/db/datausers.db', { verbose: console.log });
 const server = express();
 
 // DÍA 1 -  configuramos el servidor
@@ -49,14 +49,15 @@ server.get('/movies', (req, res) => {
 });
 // DÍA 3 -  Peticion por post para comprobar el login de la usuaria
 server.post('/login', (req, res) => {
-  const query = dbusers.prepare(
+  const query = db.prepare(
     `SELECT * FROM users WHERE email = ? AND password = ?`
   );
-  const loginUsers = query.run(req.body.email, req.body.password);
+  const loginUsers = query.get(req.body.email, req.body.password);
+  console.log(loginUsers);
   if (loginUsers !== undefined) {
     return res.json({
       success: true,
-      userId: user.id,
+      userId: loginUsers.id,
     });
   } else {
     return res.json({
@@ -68,7 +69,7 @@ server.post('/login', (req, res) => {
 
 // DIA 6 -Peticion por post para registro de la usuaria
 server.post('/sign', (req, res) => {
-  const query = dbusers.prepare(
+  const query = db.prepare(
     `INSERT INTO users (email, password, name) VALUES (?, ?, ?)`
   );
   const result = query.run(req.body.email, req.body.password, req.body.name);
@@ -80,7 +81,7 @@ server.post('/sign', (req, res) => {
 
 // server.post('/sign', (req, res) => {
 //   console.log(req.body.email);
-//   const singUsers = dbusers.find((user) => {
+//   const singUsers = db.find((user) => {
 //     if (user.email !== req.body.email && user.password !== req.body.password) {
 //       usersFromApi.push();
 //     }
