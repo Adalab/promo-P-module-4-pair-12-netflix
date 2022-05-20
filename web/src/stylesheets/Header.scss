@@ -30,6 +30,11 @@
     display: flex;
   }
 }
+.header_nav {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+}
 .header__navItem {
   list-style: none;
   padding: 10px;
@@ -44,10 +49,4 @@
 }
 .header__navLink:hover {
   color: #bfb8b9;
-}
-
-.header_nav {
-  display: flex;
-  align-items: center;
-  padding: 30px;
 }

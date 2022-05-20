@@ -35,8 +35,8 @@ const Header = (props) => {
               Mis películas
             </Link>
           </li>
-          <li className="header__navLink">
-            <span className="header__navItem" onClick={props.logout}>
+          <li className="header__navItem">
+            <span className="header__navLink" onClick={props.logout}>
               Cerrar sesión
             </span>
           </li>
