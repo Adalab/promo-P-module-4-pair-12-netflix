@@ -1,10 +1,14 @@
 .header {
   background-color: black;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
   justify-content: space-between;
   text-align: left;
+
+  @media all and (min-width: 1000px) {
+    flex-direction: row;
+  }
 }
 .header__title {
   color: #e50914;
