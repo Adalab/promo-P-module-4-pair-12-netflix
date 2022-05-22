@@ -10,7 +10,7 @@ const Database = require('better-sqlite3');
 // DÍA 5 - Hemos hecho base de datos y nos la traemos a node para usarla
 const db = new Database('./src/db/database.db', { verbose: console.log });
 
-// DÍA 1 -  configuramos el servidor
+// DÍA 1 -  configuramos el servidor.
 server.use(cors());
 server.use(express.json());
 
