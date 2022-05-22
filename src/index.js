@@ -3,8 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const server = express();
-// PREGUNTAR A SARA SI BORRAR ESTO
-// const usersFromApi = require('./data/users.json');
+
 const Database = require('better-sqlite3');
 
 // DÍA 5 - Hemos hecho base de datos y nos la traemos a node para usarla
@@ -35,7 +34,7 @@ server.use(express.static(staticServerImages));
 // DÍA 2 -  la respuesta es true con lo que se ha filtrado
 // DÍA 5 - Ya no estamos usando usersfromapi si no la base de datos. Hacemos el SELECT para obtener las películas
 server.get('/movies', (req, res) => {
-  const query = db.prepare(`SELECT * FROM movies`);
+  const query = db.prepare(`SELECT * FROM movies ORDER BY title`);
   const movieList = query.all();
 
   const filterMovies = movieList.filter((movie) => {
@@ -56,7 +55,6 @@ server.post('/login', (req, res) => {
     `SELECT * FROM users WHERE email = ? AND password = ?`
   );
   const loginUsers = query.get(req.body.email, req.body.password);
-  console.log(loginUsers);
   if (loginUsers !== undefined) {
     return res.json({
       success: true,
