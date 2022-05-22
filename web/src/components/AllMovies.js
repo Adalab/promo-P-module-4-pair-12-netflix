@@ -17,7 +17,9 @@ const AllMovies = (props) => {
       </h1>
       <form className="movies__filters">
         <div className="movies__filters--gender">
-          <label htmlFor="filterGender">Filtrar por género</label>
+          <label htmlFor="filterGender" className="filterGender">
+            Filtrar por género
+          </label>
           <select
             className="form__input-text"
             id="filterGender"

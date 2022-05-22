@@ -1,8 +1,7 @@
 .header {
   background-color: black;
   display: flex;
-  flex-direction: column;
-  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   text-align: left;
 
@@ -37,19 +36,28 @@
 .header_nav {
   display: flex;
   align-items: center;
-  padding: 30px;
+  margin-top: 10px;
 }
 .header__navItem {
   list-style: none;
-  padding: 10px;
+  padding: 5px 20px 5px 5px;
+
+  text-align: end;
 }
 .header__navLink {
   color: #e50914;
   list-style: none;
   cursor: pointer;
-  padding: 30px;
+  padding-top: 10px;
   font-family: 'Bebas Neue';
-  font-size: 30px;
+  font-size: 20px;
+  @media all and (min-width: 768px) {
+    padding: 20px;
+  }
+  @media all and (min-width: 1000px) {
+    padding: 30px;
+    font-size: 30px;
+  }
 }
 .header__navLink:hover {
   color: #bfb8b9;

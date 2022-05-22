@@ -15,16 +15,25 @@
 }
 
 .main__section1-title {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 700;
   padding: 10px;
+  font-family: 'Bebas Neue';
 }
 .movies__filters {
   display: flex;
   align-items: center;
-  padding: 10px;
+  flex-direction: column;
+  padding: 20px;
+  @media all and (min-width: 1000px) {
+    flex-direction: row;
+  }
 }
-.filterGender {
+.movies__filters--gender {
+  margin-top: 10px;
+}
+.form__input-text {
+  margin: 10px;
 }
 .form__input-text {
   color: black;
