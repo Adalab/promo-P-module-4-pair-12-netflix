@@ -15,7 +15,7 @@ import router from '../services/router';
 import ls from '../services/local-storage';
 
 const App = () => {
-  // lo cambio con ls y user para guardar el local storage
+  // DÍA 3 -  lo cambio con ls y user para guardar el local storage
   const [userId, setUserId] = useState(ls.get('user', ''));
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');

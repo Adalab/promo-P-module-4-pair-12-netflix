@@ -1,7 +1,5 @@
-// login
-
 const sendLoginToApi = (data) => {
-  // CAMBIA ESTE FETCH PARA QUE APUNTE A UN ENDPOINT DE TU SERVIDOR, PIENSA SI DEBE SER GET O POST, PIENSA QUÉ DATOS DEBES ENVIAR, ETC
+  //  DÍA 3 -  login. usamos el verbo POST para hacer la petición. la respuesta depende de si está registrada o no
   return fetch('http://localhost:4000/login', {
     method: 'POST',
     headers: {
@@ -18,7 +16,7 @@ const sendLoginToApi = (data) => {
 // signup
 
 const sendSingUpToApi = (data) => {
-  // CAMBIA ESTE FETCH PARA QUE APUNTE A UN ENDPOINT DE TU SERVIDOR, PIENSA SI DEBE SER GET O POST, PIENSA QUÉ DATOS DEBES ENVIAR, ETC
+  // DIA 6 - Hemos modificado en services/api-user/sendsignuptoapi el fetch para que envíe bien la req y reciba bien la res
   return fetch('http://localhost:4000/sign', {
     method: 'POST',
     headers: {
